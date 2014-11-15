@@ -128,7 +128,7 @@ var nouns = [
 
 function randomize (arrayToRandomize) {
     return Math.floor(Math.random() * arrayToRandomize.length);
-}
+}p
 
 // Function for generating a buzzword that returns the name and the link.
 // Access the name by generatedBuzzword.name and the link by generatedBuzzword.link

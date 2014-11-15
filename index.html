@@ -67,15 +67,20 @@
     <script src="js/javascript-dictionary.js"></script>
     <script>
         $("button#generateButton").click(function () {
+
+            // Generate name and insert text
             var generatedName = generateName();
             $("#ideaName").text(generatedName);
 
+            // Generate buzz word and insert text
             var generatedBuzzWord = generateBuzzWord();
             $("#ideaBuzzWord").text(generatedBuzzWord.name);
 
+            // Generate noun and insert text
             var generatedNoun = generateNoun();
             $("#ideaNoun").text(generatedNoun);
 
+            // Generate tech words then insert both into text
             var generatedTechs = generateTechs();
             $("#ideaTech1").text(generatedTechs.tech1.name);
             $("#ideaTech2").text(generatedTechs.tech2.name);
