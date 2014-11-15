@@ -1,14 +1,9 @@
 <?php
-echo '<pre>';
 
-// Outputs all the result of shellcommand "ls", and returns
-// the last output line into $last_line. Stores the return value
-// of the shell command in $retval.
-$last_line = system('ls', $retval);
+$gitpull = system('cd /var/www/impatientbanana.com/public_html/chimp', $retval);
 
 // Printing additional info
 echo '
-</pre>
-<hr />Last line of the output: ' . $last_line . '
-<hr />Return value: ' . $retval;
+Last line of the output: ' . $gitpull . '
+Return value: ' . $retval;
 ?>
