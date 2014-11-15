@@ -21,9 +21,15 @@
 <body>
 
 <div class="stopplay">
-    <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-    <span class="glyphicon glyphicon-play" aria-hidden="true" display="none"></span>
-    <audio src="vincent.mp3" controls="false" loop="true" preload="none"></audio>
+    
+    
+    <button id="play" onclick="playMusic()">
+        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+    </button>
+    <button id="stop" onclick="stopMusic()">
+        <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+    </button>
+    <audio id="player" src="Fabio_Confalone_-_Tempesta.mp3" controls="false" loop="true" preload="none"></audio>
 </div>
 
     <div class="jumbotron">
@@ -37,7 +43,7 @@
 
     <footer>
         <div class="container">
-            2014 The NowNa team, <a href="http://impatientbanana.com/">Team Impatient Banana</a>
+            2014 <a href="http://impatientbanana.com/">Team Impatient Banana</a>
         </div>
         <div class="container">
             Made at Revolution UC Fall 2014
@@ -51,6 +57,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="js/foswig.js"></script>
     <script src="js/main.js"></script>
-
+    <script src="js/sound.js"></script>
 </body>
 </html>
