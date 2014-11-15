@@ -2,17 +2,21 @@ body {
 
 }
 
+.keyword {
+	font-weight: bold;
+}
+
 .jumbotron {
 	padding: 40px 15px 10px 15px;
 	text-align: center;
 }
 
-.down {
+.generated-text {
 	font-size: 50px;
 }
 
-footer {
-	text-align: center;
+.down {
+	font-size: 50px;
 }
 
 .stopplay {
@@ -28,4 +32,24 @@ audio {
 
 #stop {
 	display: none;
+}
+
+.fa-refresh {
+	display: none;
+}
+
+#generateButton {
+	font-size: 75px;
+}
+
+.share {
+	font-size: 18px;
+}
+
+.fa-twitter, .fa-facebook {
+	font-size: 35px
+}
+
+.button:hover {
+	color: #666;
 }
