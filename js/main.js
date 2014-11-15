@@ -102,6 +102,7 @@ var techs = [
     ['Shirts.io', 'https://www.bento.io/shirts.io']
 ];
 
+
 function randomize (arrayToRandomize) {
     return Math.floor(Math.random() * arrayToRandomize.length);
 }
@@ -114,6 +115,14 @@ function generateBuzzwordName() {
         name: buzzwords[rand][0],
         link: buzzwords[rand][1]
     };
+}
+
+// This function generates a name for the project using the Foswig thing. Make sure to include foswig.js before this file in index.html
+function generateName() {
+    var data = dictionary;
+    chain = new Foswig(3);
+    chain.addWordsToChain(data.words);
+    return chain.generateWord(5,10,true);
 }
 
 function generateNoun() {
