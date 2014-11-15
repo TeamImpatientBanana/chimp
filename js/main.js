@@ -90,19 +90,21 @@ var techs = [
     ['CodeIgniter', 'https://www.bento.io/codeigniter'],
     ['CakePHP', 'https://www.bento.io/cakephp'],
     ['Yii', 'https://www.bento.io/yii'],
-    ['', ''],
-    ['', ''],
-    ['', ''],
-    ['', ''],
-    ['', ''],
-    ['', ''],
-    ['', ''],
-    ['', ''],
-    ['', ''],
-    ['', ''],
-    ['', '']
-
+    ['Twig', 'https://www.bento.io/twig'],
+    ['PHPixie', 'https://www.bento.io/phpixie'],
+    ['Groovy', 'https://www.bento.io/groovy'],
+    ['Clojure', 'https://www.bento.io/clojure'],
+    ['XML', 'https://www.bento.io/xml'],
+    ['Firebase', 'https://www.bento.io/firebase'],
+    ['Perl', 'https://www.bento.io/perl'],
+    ['C#', 'https://www.bento.io/c-sharp'],
+    ['.NET', 'https://www.bento.io/.net'],
+    ['Shirts.io', 'https://www.bento.io/shirts.io']
 ];
+
+function randomize (arrayToRandomize) {
+    return Math.floor(Math.random() * arrayToRandomize.length);
+}
 
 function generateName() {
 
@@ -111,7 +113,7 @@ function generateName() {
 // Function for generating a buzzword that returns the name and the link.
 // Access the name by generatedBuzzword.name and the link by generatedBuzzword.link
 function generateBuzzwordName() {
-    rand = Math.floor(Math.random() * buzzwords.length);
+    var rand = randomize(buzzwords);
     return {
         name: buzzwords[rand][0],
         link: buzzwords[rand][1]
@@ -122,10 +124,22 @@ function generateNoun() {
 
 }
 
-function generateTechnology1() {
-
-}
-
-function generateTechnology2() {
-	
+// Function for generating technology names, This will return four values: Tech 1 name and link and tech 2 name and link
+// Access name and link of tech 1 by generatedTech.tech1.name and generatedTech.tech1.link. Same notation for tech 2.
+function generateTechs() {
+    var rand = randomize(techs);
+    var rand2 = randomize(techs);
+    while (rand == rand2) {
+        rand2 = randomize(techs);
+    }
+    return {
+        tech1 : {
+            name: techs[rand][0],
+            link: techs[rand][1]
+        },
+        tech2 : {
+            name: techs[rand2][0],
+            link: techs[rand2][1]
+        }
+    }
 }
