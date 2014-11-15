@@ -19,8 +19,13 @@ footer {
 	position: fixed;
     top: 15px;
     right: 15px;
+    font-size: 40px;
 }
 
 audio {
+	display: none;
+}
+
+#stop {
 	display: none;
 }
