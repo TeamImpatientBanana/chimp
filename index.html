@@ -33,15 +33,16 @@
     <audio id="player" src="Fabio_Confalone_-_Tempesta.mp3" controls="false" loop="true" preload="none"></audio>
 </div>
 
-    <div class="jumbotron text-center">
+    <div id="jumbotron" class="jumbotron text-center">
         <!--insert the chimp here-->
         <h1>Chimp</h1>
         <h2>A hackathon idea generator</h2>
         <div class="centered-text">
-            <span class="glyphicon glyphicon-chevron-down down button" aria-hidden="true"></span>
+            <span id="chevronDown" class="glyphicon glyphicon-chevron-down down button" aria-hidden="true"></span>
         </div>
     </div>
-    <div class="container text-center generated-text">
+    <div id="generatorContainer" class="container text-center generated-text">
+
         <!-- This is where we'll put the generator -->
         <p>You will create<br/>
             <span id="ideaName" class="keyword">_________</span>,<br/>
@@ -57,7 +58,7 @@
         <i class="fa fa-twitter button"></i> <i class="fa fa-facebook button"></i></p>
     </div>
 
-    <foote class="text-center">
+    <footer class="text-center">
         <div class="container">
             2014 <a href="http://impatientbanana.com/">Team Impatient Banana</a>
         </div>
@@ -76,6 +77,10 @@
     <script src="js/sound.js"></script>
     <script src="js/javascript-dictionary.js"></script>
     <script>
+        var w = $(window).height();
+        console.log(w);
+
+        // Button click event when the chevron is clicked
         $("#generateButton").click(function () {
 
             $('.fa-rocket').hide();
