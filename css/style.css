@@ -55,11 +55,7 @@ audio {
 }
 
 .topHalfMain {
-	height: 79%;
-}
-
-.bottomHalfMain {
-	height: 21%;
+	max-height: 75vh;
 }
 
 footer {
