@@ -21,17 +21,16 @@
 
 <body>
 
-<div class="stopplay">
-    
-    
-    <div id="play" onclick="playMusic()">
-        <i class="fa fa-play button"></i>
+<div id="mainViewContainer" class="container">
+    <div class="stopplay">
+        <div id="play" onclick="playMusic()">
+            <i class="fa fa-play button"></i>
+        </div>
+        <div id="stop" onclick="stopMusic()">
+            <i class="fa fa-stop button"></i>
+        </div>
+        <audio id="player" src="Fabio_Confalone_-_Tempesta.mp3" controls="false" loop="true" preload="none"></audio>
     </div>
-    <div id="stop" onclick="stopMusic()">
-        <i class="fa fa-stop button"></i>
-    </div>
-    <audio id="player" src="Fabio_Confalone_-_Tempesta.mp3" controls="false" loop="true" preload="none"></audio>
-</div>
 
     <div id="jumbotron" class="jumbotron text-center">
         <!--insert the chimp here-->
@@ -41,34 +40,36 @@
             <span id="chevronDown" class="glyphicon glyphicon-chevron-down down button" aria-hidden="true"></span>
         </div>
     </div>
-    <div id="generatorContainer" class="container text-center generated-text">
+</div>
 
-        <!-- This is where we'll put the generator -->
-        <p>You will create<br/>
-            <span id="ideaName" class="keyword">_________</span>,<br/>
-            <span id="ideaBuzzWord" class="keyword">a _________</span> <span id="ideaNoun" class="keyword">_________</span><br/>
-            using<br/>
-            <span id="ideaTech1" class="keyword">_________</span> and <span id="ideaTech2" class="keyword">_________</span>.</p>
-        <br />
-        <span id="generateButton"><i class="fa fa-rocket button"></i><i class="fa fa-refresh button"></i></span>
+<div id="generatorContainer" class="container text-center generated-text">
+
+    <!-- This is where we'll put the generator -->
+    <p>You will create<br/>
+        <span id="ideaName" class="keyword">_________</span>,<br/>
+        <span id="ideaBuzzWord" class="keyword">a _________</span> <span id="ideaNoun" class="keyword">_________</span><br/>
+        using<br/>
+        <span id="ideaTech1" class="keyword">_________</span> and <span id="ideaTech2" class="keyword">_________</span>.</p>
+    <br />
+    <span id="generateButton"><i class="fa fa-rocket button"></i><i class="fa fa-refresh button"></i></span>
+</div>
+
+<div class="container text-center share">
+    <p>Share your hackathon idea<br/>
+    <i class="fa fa-twitter button"></i> <i class="fa fa-facebook button"></i></p>
+</div>
+
+<footer class="text-center">
+    <div class="container">
+        2014 <a href="http://impatientbanana.com/">Team Impatient Banana</a>
     </div>
-
-    <div class="container text-center share">
-        <p>Share your hackathon idea<br/>
-        <i class="fa fa-twitter button"></i> <i class="fa fa-facebook button"></i></p>
+    <div class="container">
+        Made at Revolution UC Fall 2014
     </div>
-
-    <footer class="text-center">
-        <div class="container">
-            2014 <a href="http://impatientbanana.com/">Team Impatient Banana</a>
-        </div>
-        <div class="container">
-            Made at Revolution UC Fall 2014
-        </div>
-        <div class="container">
-            <a href="https://github.com/TeamImpatientBanana/chimp">Fork this on GitHub</a>
-        </div>
-    </footer>
+    <div class="container">
+        <a href="https://github.com/TeamImpatientBanana/chimp">Fork this on GitHub</a>
+    </div>
+</footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -77,31 +78,67 @@
     <script src="js/sound.js"></script>
     <script src="js/javascript-dictionary.js"></script>
     <script>
-        var w = $(window).height();
-        console.log(w);
+        $(window).load(function() {
+            $(document).ready(function() {
 
-        // Button click event when the chevron is clicked
-        $("#generateButton").click(function () {
+                // Store the window height and use for the main container. Keep this at the top
+                var w = $(window).height();
+                $("#mainViewContainer").height(w);
 
-            $('.fa-rocket').hide();
-            $('.fa-refresh').show();
+                // Click event for the chevron down. This will scroll to the bottom of the page smoothly
+                $('#chevronDown').click(function() {
+                    $('html, body').animate({
+                        scrollTop: $("#generatorContainer").offset().top
+                    }, 1000);
+                });
 
-            // Generate name and insert text
-            var generatedName = generateName();
-            $("#ideaName").text(generatedName);
 
-            // Generate buzz word and insert text
-            var generatedBuzzWord = generateBuzzWord();
-            $("#ideaBuzzWord").text(generatedBuzzWord.name);
+                // This is the function for smooth scrolling too anchor tags within the page. Apparently its not that easy
+                /*
+                $('a[href^="#"]').on('click',function (e) {
+                    e.preventDefault();
 
-            // Generate noun and insert text
-            var generatedNoun = generateNoun();
-            $("#ideaNoun").text(generatedNoun);
+                    var target = this.hash;
+                    $target = $(target);
 
-            // Generate tech words then insert both into text
-            var generatedTechs = generateTechs();
-            $("#ideaTech1").text(generatedTechs.tech1.name);
-            $("#ideaTech2").text(generatedTechs.tech2.name);
+                    $('html, body').stop().animate({
+                        'scrollTop': $target.offset().top
+                    }, 900, 'swing', function () {
+                        window.location.hash = target;
+                    });
+                });
+                */
+
+
+
+
+                // Button click event when the chevron is clicked
+                $("#generateButton").click(function () {
+
+
+
+                    // Replace the go button with a replay button
+                    $('.fa-rocket').hide();
+                    $('.fa-refresh').show();
+
+                    // Generate name and insert text
+                    var generatedName = generateName();
+                    $("#ideaName").text(generatedName);
+
+                    // Generate buzz word and insert text
+                    var generatedBuzzWord = generateBuzzWord();
+                    $("#ideaBuzzWord").text(generatedBuzzWord.name);
+
+                    // Generate noun and insert text
+                    var generatedNoun = generateNoun();
+                    $("#ideaNoun").text(generatedNoun);
+
+                    // Generate tech words then insert both into text
+                    var generatedTechs = generateTechs();
+                    $("#ideaTech1").text(generatedTechs.tech1.name);
+                    $("#ideaTech2").text(generatedTechs.tech2.name);
+                });
+            });
         });
     </script>
 </body>
