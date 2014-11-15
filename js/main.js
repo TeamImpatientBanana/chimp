@@ -102,6 +102,31 @@ var techs = [
     ['Shirts.io', 'https://www.bento.io/shirts.io']
 ];
 
+var nouns = [
+    "Application",
+    "Game",
+    "Operating System",
+    "User Interface",
+    "Calculator",
+    "GPS",
+    "Software",
+    "Typography",
+    "Menu",
+    "Database System",
+    "Android App",
+    "iPhone App",
+    "Windows Phone App",
+    "MMO",
+    "RPG",
+    "E-Reader",
+    "Webapp",
+    "Leap Motion App",
+    "App",
+    "Spreadsheet",
+    "Mailing List"
+];
+
+
 
 function randomize (arrayToRandomize) {
     return Math.floor(Math.random() * arrayToRandomize.length);
@@ -109,7 +134,7 @@ function randomize (arrayToRandomize) {
 
 // Function for generating a buzzword that returns the name and the link.
 // Access the name by generatedBuzzword.name and the link by generatedBuzzword.link
-function generateBuzzwordName() {
+function generateBuzzWord() {
     var rand = randomize(buzzwords);
     return {
         name: buzzwords[rand][0],
@@ -125,22 +150,26 @@ function generateName() {
     return chain.generateWord(5,10,true);
 }
 
+// This function will generate the nouns based on the array above. Much simpler than the others
 function generateNoun() {
-
+    var rand = randomize(nouns);
+    return nouns[rand];
 }
 
 // Function for generating technology names, This will return four values: Tech 1 name and link and tech 2 name and link
 // Access name and link of tech 1 by generatedTech.tech1.name and generatedTech.tech1.link. Same notation for tech 2.
 function generateTechs() {
-    var rand = randomize(techs);
+    var rand1 = randomize(techs);
     var rand2 = randomize(techs);
-    while (rand == rand2) {
+
+    // If rand2 happens to equal rand1, calculate it until it doesn't
+    while (rand1 == rand2) {
         rand2 = randomize(techs);
     }
     return {
         tech1 : {
-            name: techs[rand][0],
-            link: techs[rand][1]
+            name: techs[rand1][0],
+            link: techs[rand1][1]
         },
         tech2 : {
             name: techs[rand2][0],

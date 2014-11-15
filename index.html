@@ -40,6 +40,12 @@
             <span class="glyphicon glyphicon-chevron-down down" aria-hidden="true"></span>
         </div>
     </div>
+    <div class="container centered-text">
+        <!-- This is where we'll put the generator -->
+        <h3>You will create <span id="ideaName">_________</span>, <span id="ideaBuzzWord">a _________</span> <span id="ideaNoun">_________</span> using <span id="ideaTech1">_________</span> and <span id="ideaTech2">_________</span>.</h3>
+        <br />
+        <button id="generateButton" class="btn-default">Generate</button>
+    </div>
 
     <footer>
         <div class="container">
@@ -59,5 +65,21 @@
     <script src="js/main.js"></script>
     <script src="js/sound.js"></script>
     <script src="js/javascript-dictionary.js"></script>
+    <script>
+        $("button#generateButton").click(function () {
+            var generatedName = generateName();
+            $("#ideaName").text(generatedName);
+
+            var generatedBuzzWord = generateBuzzWord();
+            $("#ideaBuzzWord").text(generatedBuzzWord.name);
+
+            var generatedNoun = generateNoun();
+            $("#ideaNoun").text(generatedNoun);
+
+            var generatedTechs = generateTechs();
+            $("#ideaTech1").text(generatedTechs.tech1.name);
+            $("#ideaTech2").text(generatedTechs.tech2.name);
+        });
+    </script>
 </body>
 </html>
