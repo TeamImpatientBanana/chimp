@@ -1,6 +1,6 @@
 <?php
 
-$gitpull = system('cd /var/www/impatientbanana.com/public_html/chimp', $retval);
+$gitpull = system('cd /var/www/impatientbanana.com/public_html/chimp && git pull', $retval);
 
 // Printing additional info
 echo '
