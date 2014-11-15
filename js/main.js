@@ -104,6 +104,10 @@ var techs = [
 
 ];
 
+function generateName() {
+
+}
+
 // Function for generating a buzzword that returns the name and the link.
 // Access the name by generatedBuzzword.name and the link by generatedBuzzword.link
 function generateBuzzwordName() {
