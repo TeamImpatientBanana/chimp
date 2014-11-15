@@ -21,7 +21,7 @@
 
 <body>
 
-<div id="mainViewContainer" class="container">
+<div id="mainViewContainer">
     <div class="stopplay">
         <div id="play" onclick="playMusic()">
             <i class="fa fa-play button"></i>
@@ -42,9 +42,9 @@
     </div>
 </div>
 
-<div id="generatorContainer" class="container text-center generated-text">
+<!--This container needs to be hidden until the page loads or it will glitch out-->
+<div id="generatorContainer" class="container text-center generated-text" style="display:none;">
 
-    <!-- This is where we'll put the generator -->
     <p>You will create<br/>
         <span id="ideaName" class="keyword">_________</span>,<br/>
         <span id="ideaBuzzWord" class="keyword">a _________</span> <span id="ideaNoun" class="keyword">_________</span><br/>
@@ -52,23 +52,27 @@
         <span id="ideaTech1" class="keyword">_________</span> and <span id="ideaTech2" class="keyword">_________</span>.</p>
     <br />
     <span id="generateButton"><i class="fa fa-rocket button"></i><i class="fa fa-refresh button"></i></span>
+
+    <div class="container text-center share">
+        <p>Share your hackathon idea<br/>
+        <i class="fa fa-twitter button"></i> <i class="fa fa-facebook button"></i></p>
+    </div>
 </div>
 
-<div class="container text-center share">
-    <p>Share your hackathon idea<br/>
-    <i class="fa fa-twitter button"></i> <i class="fa fa-facebook button"></i></p>
-</div>
+<footer id="footer">
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="navbar-inner navbar-content-center container">
 
-<footer class="text-center">
-    <div class="container">
-        2014 <a href="http://impatientbanana.com/">Team Impatient Banana</a>
-    </div>
-    <div class="container">
-        Made at Revolution UC Fall 2014
-    </div>
-    <div class="container">
-        <a href="https://github.com/TeamImpatientBanana/chimp">Fork this on GitHub</a>
-    </div>
+            <p class="pull-left">Made at Revolution UC Fall 2014</p>
+
+            <ul class="pull-right list-inline">
+                <li>2014 <a href="http://impatientbanana.com/">Team Impatient Banana</a></li>
+                <li><a href="https://github.com/TeamImpatientBanana/chimp">Fork this on GitHub</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
 </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -81,36 +85,19 @@
         $(window).load(function() {
             $(document).ready(function() {
 
-                // Store the window height and use for the main container. Keep this at the top
+                // Store the window height and use for the main container and generator container so everything stays at the top. Keep this at the top of the code!
+                // Also show the generator container now that the heights are set
                 var w = $(window).height();
                 $("#mainViewContainer").height(w);
+                $("#generatorContainer").height(w).show();
 
-                // Click event for the chevron down. This will scroll to the bottom of the page smoothly
+                // Click event for the chevron down. This will scroll to the generator smoothly
                 $('#chevronDown').click(function() {
                     $('html, body').animate({
                         scrollTop: $("#generatorContainer").offset().top
                     }, 1000);
+
                 });
-
-
-                // This is the function for smooth scrolling too anchor tags within the page. Apparently its not that easy
-                /*
-                $('a[href^="#"]').on('click',function (e) {
-                    e.preventDefault();
-
-                    var target = this.hash;
-                    $target = $(target);
-
-                    $('html, body').stop().animate({
-                        'scrollTop': $target.offset().top
-                    }, 900, 'swing', function () {
-                        window.location.hash = target;
-                    });
-                });
-                */
-
-
-
 
                 // Button click event when the chevron is clicked
                 $("#generateButton").click(function () {
