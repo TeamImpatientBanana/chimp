@@ -48,13 +48,18 @@ var buzzwords = [
 ];
 
 
-
 function generateName() {
 
 }
 
-function generateBuzzword() {
-    return buzzwords[Math.floor(Math.random() * buzzwords.length)];
+// Function for generating a buzzword that returns the name and the link.
+// Access the name by generatedBuzzword.name and the link by generatedBuzzword.link
+function generateBuzzwordName() {
+    rand = Math.floor(Math.random() * buzzwords.length);
+    return {
+        name: buzzwords[rand][0],
+        link: buzzwords[rand][1]
+    };
 }
 
 function generateNoun() {
