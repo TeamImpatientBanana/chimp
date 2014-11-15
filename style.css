@@ -1,8 +1,26 @@
-body{
-	padding-top:50px;
+body {
+
 }
 
-.starter-template{
-	padding:40px 15px;
-	text-align:center;
+.jumbotron {
+	padding: 40px 15px 10px 15px;
+	text-align: center;
+}
+
+.down {
+	font-size: 50px;
+}
+
+footer {
+	text-align: center;
+}
+
+.stopplay {
+	position: fixed;
+    top: 15px;
+    right: 15px;
+}
+
+audio {
+	display: none;
 }
