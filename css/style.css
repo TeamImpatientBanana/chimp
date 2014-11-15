@@ -53,3 +53,11 @@ audio {
 .button:hover {
 	color: #666;
 }
+
+#jumbotron {
+	height: 100vh;
+}
+
+#chimpSvg {
+	max-height: 60%;
+}
