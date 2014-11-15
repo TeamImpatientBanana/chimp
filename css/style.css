@@ -54,8 +54,12 @@ audio {
 	height: 100vh;
 }
 
-#chimpSvg {
-	max-height: 40%;
+.topHalfMain {
+	height: 79%;
+}
+
+.bottomHalfMain {
+	height: 21%;
 }
 
 footer {
