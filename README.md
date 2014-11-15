@@ -1,0 +1,4 @@
+chimp
+=====
+
+Hackathon idea generator
