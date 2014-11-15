@@ -44,7 +44,7 @@ var buzzwords = [
     ['a future proof','http://www.techopedia.com/definition/2204/future-proof'],
     ['a RESTful','http://www.techopedia.com/definition/1312/representational-state-transfer-rest'],
     ['a dynamic','http://dictionary.reference.com/browse/dynamic'],
-    ['a cut-and-dried','http://dictionary.reference.com/browse/cut%20and%20dried']
+    ['a cut-and-dried','http://dictionary.reference.com/browse/cut%20and%20dried'],
 ];
 
 var techs = [
@@ -103,29 +103,27 @@ var techs = [
 ];
 
 var nouns = [
-    "Application",
-    "Game",
-    "Operating System",
-    "User Interface",
-    "Calculator",
+    "application",
+    "game",
+    "operating system",
+    "user interface",
+    "calculator",
     "GPS",
-    "Software",
-    "Typography",
-    "Menu",
-    "Database System",
-    "Android App",
-    "iPhone App",
-    "Windows Phone App",
-    "MMO",
-    "RPG",
-    "E-Reader",
-    "Webapp",
-    "Leap Motion App",
-    "App",
-    "Spreadsheet",
-    "Mailing List"
-];
+    "typography software",
+    "menu",
+    "database system",
+    "android app",
+    "iPhone app",
+    "Windows Phone app",
+    "e-reader",
+    "webapp",
+    "Leap Motion app",
+    "spreadsheet",
+    "mailing list",
+    "image organizer",
+    "todo list"
 
+];
 
 
 function randomize (arrayToRandomize) {
