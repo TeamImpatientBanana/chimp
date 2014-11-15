@@ -55,11 +55,11 @@ audio {
 }
 
 .topHalfMain {
-	max-height: 70%;
+	max-height: 50%;
 }
 
 .bottomHalfMain {
-	max-height: 30%;
+	max-height: 50%;
 }
 
 footer {
