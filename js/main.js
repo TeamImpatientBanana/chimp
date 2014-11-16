@@ -152,7 +152,7 @@ function generateName() {
 // This function will generate the nouns based on the array above. Much simpler than the others
 function generateNoun() {
     var rand = randomize(nouns);
-    return nouns[rand];
+    return nouns[rand][0];
 }
 
 // Function for generating technology names, This will return four values: Tech 1 name and link and tech 2 name and link

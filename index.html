@@ -35,9 +35,9 @@
         <div id="jumbotron" class="jumbotron text-center">
             <!--insert the chimp here-->
 
-            <img id="chimpSvg" class="topHalfMain" src="images/Chimp.svg" />
+            <img id="chimpSvg" class="topHalfMain" src="images/Chimp.svg" style="display:none"/>
 
-            <div class="bottomHalfMain">
+            <div id="chimpHeading" class="bottomHalfMain" style="display:none">
                 <h1>Chimp</h1>
                 <h2>A hackathon idea generator</h2>
                 <br/>
@@ -112,6 +112,10 @@
                 var w = $(window).height();
                 $("#mainViewContainer").height(w);
                 $("#generatorContainer").height(w).show();
+
+                // Fade in the chimp and the heading on the main window
+                $("#chimpSvg").fadeIn(700);
+                $("#chimpHeading").fadeIn(700);
 
 
                 // Listener for resizing the window
