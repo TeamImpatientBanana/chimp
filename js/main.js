@@ -200,6 +200,9 @@ function clickGenerateButton() {
     var generatedTechs = generateTechs();
     $("#ideaTech1").text(generatedTechs.tech1.name);
     $("#ideaTech2").text(generatedTechs.tech2.name);
+
+    //Make the Twitter button have your idea in the text
+    $("#twitter-share-button").attr("href", "https://twitter.com/intent/tweet?original_referer=&text=This%20%23hackathon%20I%27m%20going%20to%20make%20"+generatedName+"%2C%20"+generatedBuzzWord.name+"%20"+generatedNoun+"%20using%20"+generatedTechs.tech1.name+"%20and%20"+generatedTechs.tech2.name+"%2C%20thanks%20%40impatientbanana%20for%20the%20idea!");
 }
 
 // This is the function that animates the scrolling down when the chevron is clicked

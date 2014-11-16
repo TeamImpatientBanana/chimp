@@ -35,7 +35,9 @@ audio {
 }
 
 #generateButton {
-	font-size: 75px;
+	font-size: 100px;
+	margin-top: 25px;
+	margin-bottom: 25px;
 }
 
 .share {
@@ -76,8 +78,4 @@ footer {
 	position:relative;
 	overflow-y:hidden;
 	overflow-x:hidden;
-}
-
-#shareIdea {
-
 }
