@@ -40,6 +40,9 @@
             <div class="bottomHalfMain">
                 <h1>Chimp</h1>
                 <h2>A hackathon idea generator</h2>
+                <br/>
+                <br/>
+                <br/>
                 <div class="centered-text">
                     <span id="chevronDown" class="glyphicon glyphicon-chevron-down down button" aria-hidden="true"></span>
                 </div>
@@ -59,8 +62,7 @@
         <span id="generateButton"><i class="fa fa-rocket button"></i><i class="fa fa-refresh button"></i></span>
 
         <div class="container text-center share">
-            <p>Share your hackathon idea<br/>
-            <i class="fa fa-twitter button"></i> <i class="fa fa-facebook button"></i></p>
+            <p>Share your hackathon idea <i class="fa fa-twitter button"></i> <i class="fa fa-facebook button"></i></p>
         </div>
 
     </div>
@@ -103,6 +105,7 @@
 
                 // Click event for the chevron down. This will scroll to the generator smoothly
                 $('#chevronDown').click(function() {
+                    playMusic();
                     $('html, body').animate({
                         scrollTop: $("#generatorContainer").offset().top
                     }, 1000);
