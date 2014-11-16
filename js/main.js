@@ -152,7 +152,10 @@ function generateName() {
 // This function will generate the nouns based on the array above. Much simpler than the others
 function generateNoun() {
     var rand = randomize(nouns);
-    return nouns[rand][0];
+    return {
+        name: nouns[rand][0],
+        link: nouns[rand][1]
+    };
 }
 
 // Function for generating technology names, This will return four values: Tech 1 name and link and tech 2 name and link
@@ -181,8 +184,14 @@ function generateTechs() {
 function clickGenerateButton() {
 
     // Replace the go button with a replay button
-    $('.fa-rocket').hide();
-    $('.fa-refresh').show();
+    if ($(".fa-rocket:visible")) {
+        $('.fa-rocket').hide();
+        $('.fa-refresh').show();
+    }
+    else if ($(".fa-refresh:visible")) {
+        $('.fa-refresh').hide();
+        $('.fa-rocket').show();
+    }
 
     // Generate name and insert text
     var generatedName = generateName();
@@ -194,7 +203,7 @@ function clickGenerateButton() {
 
     // Generate noun and insert text
     var generatedNoun = generateNoun();
-    $("#ideaNoun").text(generatedNoun);
+    $("#ideaNoun").text(generatedNoun.name);
 
     // Generate tech words then insert both into text
     var generatedTechs = generateTechs();
@@ -202,7 +211,7 @@ function clickGenerateButton() {
     $("#ideaTech2").text(generatedTechs.tech2.name);
 
     //Make the Twitter button have your idea in the text
-    $("#twitter-share-button").attr("href", "https://twitter.com/intent/tweet?original_referer=&text=This%20%23hackathon%20I%27m%20going%20to%20make%20"+generatedName+"%2C%20"+generatedBuzzWord.name+"%20"+generatedNoun+"%20using%20"+generatedTechs.tech1.name+"%20and%20"+generatedTechs.tech2.name+"%2C%20thanks%20%40impatientbanana%20for%20the%20idea!");
+    $("#twitter-share-button").attr("href", "https://twitter.com/intent/tweet?original_referer=&text=This%20%23hackathon%20I%27m%20going%20to%20make%20"+generatedName+"%2C%20"+generatedBuzzWord.name+"%20"+generatedNoun.name+"%20using%20"+generatedTechs.tech1.name+"%20and%20"+generatedTechs.tech2.name+"%2C%20thanks%20%40impatientbanana%20for%20the%20idea!");
 }
 
 // This is the function that animates the scrolling down when the chevron is clicked

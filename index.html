@@ -103,6 +103,10 @@
         var counterNames = Math.floor(Math.random() * dictionary.words.length);
         console.log(counterNames);
 
+        // variables to check if its the first time running the generator and if it is currently running
+        var first = true;
+        var running = false;
+
         $(window).load(function() {
             $(document).ready(function () {
                 // This variable needs to be defined here. It will be true when the generate button is clicked, stopping the scrolling function.
@@ -130,17 +134,32 @@
                     animateScrolling();
                 });
 
-
                 // Interval for looping through the arrays until a click even happens
-                $('#generatorContainer').waypoint(function () {
-                    loopingVariable = setInterval(function() {
-                        loopThroughArrays();
-                    }, 200);
-                }, {offset: '10%'});
+                $('#generatorContainer').waypoint(function (direction) {
+                    if (first) {
+                        first = !first;
+                        running = true;
+                        loopingVariable = setInterval(function () {
+                            loopThroughArrays();
+                        }, 200);
+                    }
+                });
 
                 $("#generateButton").click(function () {
-                    clearInterval(loopingVariable);
-                    clickGenerateButton();
+                    if(running) {
+                        clearInterval(loopingVariable);
+                        clickGenerateButton();
+                        running = !running;
+                    } else {
+                        running = true;
+                        // Replace the replay button with a go button
+                        $('.fa-refresh').hide();
+                        $('.fa-rocket').show();
+                        $('#twitter-share-button').attr('href', 'https://twitter.com/intent/tweet?original_referer=&text=Generate%20a%20%23hackathon%20idea%20at%20http%3A%2F%2Fchimp.impatientbanana.com%2F%20by%20%40impatientbanana&tw_p=tweetbutton&url=file%3A%2F%2F%2FC%3A%2FUsers%2FJoe%2520Duncko%2FDocuments%2FGitHub%2Fchimp%2Findex.html');
+                        loopingVariable = setInterval(function () {
+                            loopThroughArrays();
+                        }, 200);
+                    }
                 });
             });
         });
