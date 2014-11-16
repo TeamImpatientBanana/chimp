@@ -46,7 +46,7 @@ var buzzwords = [
     ['a future proof','http://www.techopedia.com/definition/2204/future-proof'],
     ['a RESTful','http://www.techopedia.com/definition/1312/representational-state-transfer-rest'],
     ['a dynamic','http://dictionary.reference.com/browse/dynamic'],
-    ['a cut-and-dried','http://dictionary.reference.com/browse/cut%20and%20dried'],
+    ['a cut-and-dried','http://dictionary.reference.com/browse/cut%20and%20dried']
 ];
 
 var techs = [
