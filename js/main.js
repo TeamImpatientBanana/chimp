@@ -1,3 +1,5 @@
+// MAKE SURE THIS FILE IS INCLUDED AFTER JQUERY
+
 var buzzwords = [
     ['a bleeding edge', 'http://www.techopedia.com/definition/23222/bleeding-edge'],
     ['a big data', 'http://www.techopedia.com/definition/27745/big-data'],
@@ -140,7 +142,7 @@ function generateBuzzWord() {
     };
 }
 
-// This function generates a name for the project using the Foswig thing. Make sure to include foswig.js before this file in index.html
+// This function generates a name for the project using the Foswig function. Make sure to include foswig.js before this file in index.html
 function generateName() {
     var data = dictionary;
     chain = new Foswig(3);
@@ -174,4 +176,86 @@ function generateTechs() {
             link: techs[rand2][1]
         }
     }
+}
+
+// Button click event when the chevron is clicked
+function clickGenerateButton() {
+
+    // Replace the go button with a replay button
+    $('.fa-rocket').hide();
+    $('.fa-refresh').show();
+
+    // Generate name and insert text
+    var generatedName = generateName();
+    $("#ideaName").text(generatedName);
+
+    // Generate buzz word and insert text
+    var generatedBuzzWord = generateBuzzWord();
+    $("#ideaBuzzWord").text(generatedBuzzWord.name);
+
+    // Generate noun and insert text
+    var generatedNoun = generateNoun();
+    $("#ideaNoun").text(generatedNoun);
+
+    // Generate tech words then insert both into text
+    var generatedTechs = generateTechs();
+    $("#ideaTech1").text(generatedTechs.tech1.name);
+    $("#ideaTech2").text(generatedTechs.tech2.name);
+}
+
+// This is the function that animates the scrolling down when the chevron is clicked
+function animateScrolling() {
+    $('html, body').animate({
+        scrollTop: $("#generatorContainer").offset().top
+    }, 1000);
+}
+
+// This function will change each divs heights according to the viewport size when the window is resized
+function resizeListener() {
+    // This will execute whenever the window is resized
+    var w = $(window).height();
+    $("#jumbotron").height(w);
+    $("#generatorContainer").height(w);
+}
+
+// The values for counterBuzzwords, counterNouns, counterTechs1, counterTechs2, counterNames NEED to be defined in index.html because of the nature of the setInterval function using this function
+function loopThroughArrays() {
+    // Loop through everything, literally
+
+    $("#ideaName").text(dictionary.words[counterNames]);
+    $("#ideaBuzzWord").text(buzzwords[counterBuzzwords][0]);
+    $("#ideaNoun").text(nouns[counterNouns][0]);
+    $("#ideaTech1").text(techs[counterTechs1][0]);
+    $("#ideaTech2").text(techs[counterTechs2][0]);
+
+    // Loop through buzzwords
+    counterBuzzwords = ++counterBuzzwords;
+    if (counterBuzzwords == nouns.length) {
+        counterBuzzwords = 0;
+    }
+    // Loop through nouns
+    counterNouns = ++counterNouns;
+    if (counterNouns == nouns.length) {
+        counterNouns = 0;
+    }
+    // Loop through techs (k is tech 1, l is tech 2)
+    counterTechs1 = ++counterTechs1;
+    if (counterTechs1 == techs.length) {
+        counterTechs1 = 0;
+    }
+    counterTechs2 = ++counterTechs2;
+    if (counterTechs2 == techs.length) {
+        counterTechs2 = 0;
+    }
+    // Loop through dictionary of names
+    counterNames = ++counterNames;
+    if (counterNames == dictionary.words.length) {
+        counterNames = 0;
+    }
+    // VERY IMPORTANT: var generateButtonIsClicked needs to be defined outside of the scope of this function as a boolean. Define it in index.html
+    /*
+    if (generateButtonIsClicked == true) {
+        break;
+    }
+    */
 }

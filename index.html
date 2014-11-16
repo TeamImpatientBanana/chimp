@@ -53,15 +53,19 @@
     <!--This container needs to be hidden until the page loads or it will glitch out-->
     <div id="generatorContainer" class="container text-center generated-text" style="display:none;">
 
-        <p>You will create<br/>
-            <span id="ideaName" class="keyword">_________</span>,<br/>
-            <span id="ideaBuzzWord" class="keyword">a _________</span> <span id="ideaNoun" class="keyword">_________</span><br/>
-            using<br/>
-            <span id="ideaTech1" class="keyword">_________</span> and <span id="ideaTech2" class="keyword">_________</span>.</p>
+        <p>You will create
+            <br/>
+            <span id="ideaName" class="keyword">______</span>,
+            <br/>
+            <span id="ideaBuzzWord" class="keyword">a(n) ______</span> <span id="ideaNoun" class="keyword">______</span>
+            <br/>
+            using
+            <br/>
+            <span id="ideaTech1" class="keyword">______</span> and <span id="ideaTech2" class="keyword">______</span>.</p>
         <br />
         <span id="generateButton"><i class="fa fa-rocket button"></i><i class="fa fa-refresh button"></i></span>
 
-        <div class="container text-center share">
+        <div id="shareIdea" class="container text-center share">
             <p>Share your hackathon idea <i class="fa fa-twitter button"></i> <i class="fa fa-facebook button"></i></p>
         </div>
 
@@ -85,9 +89,23 @@
     <script src="js/main.js"></script>
     <script src="js/sound.js"></script>
     <script src="js/javascript-dictionary.js"></script>
+    <script src="js/waypoints.min.js"></script>
     <script>
+        var loopingVariable;
+
+        // Set the looping variables HERE for the loopThroughArrays() function.
+        var counterBuzzwords = 0;
+        var counterNouns = 0;
+        var counterTechs1 = 0;
+        // offset l so k & l aren't the same while looping
+        var counterTechs2 = 1;
+        var counterNames = Math.floor(Math.random() * dictionary.words.length);
+        console.log(counterNames);
+
         $(window).load(function() {
-            $(document).ready(function() {
+            $(document).ready(function () {
+                // This variable needs to be defined here. It will be true when the generate button is clicked, stopping the scrolling function.
+                // var generateButtonIsClicked = false;
 
                 // Store the window height and use for the main container and generator container so everything stays at the top. Keep this at the top of the code!
                 // Also show the generator container now that the heights are set
@@ -95,48 +113,29 @@
                 $("#mainViewContainer").height(w);
                 $("#generatorContainer").height(w).show();
 
-                // Listenser for resizing the window
-                $(window).resize(function() {
-                    // This will execute whenever the window is resized
-                    var w = $(window).height();
-                    $("#mainViewContainer").height(w);
-                    $("#generatorContainer").height(w);
+
+                // Listener for resizing the window
+                $(window).resize(function () {
+                    resizeListener();
                 });
 
                 // Click event for the chevron down. This will scroll to the generator smoothly
                 $('#chevronDown').click(function() {
                     playMusic();
-                    $('html, body').animate({
-                        scrollTop: $("#generatorContainer").offset().top
-                    }, 1000);
-
+                    animateScrolling();
                 });
 
-                // Button click event when the chevron is clicked
+
+                // Interval for looping through the arrays until a click even happens
+                $('#generatorContainer').waypoint(function () {
+                    loopingVariable = setInterval(function() {
+                        loopThroughArrays();
+                    }, 200);
+                }, {offset: '10%'});
+
                 $("#generateButton").click(function () {
-
-
-
-                    // Replace the go button with a replay button
-                    $('.fa-rocket').hide();
-                    $('.fa-refresh').show();
-
-                    // Generate name and insert text
-                    var generatedName = generateName();
-                    $("#ideaName").text(generatedName);
-
-                    // Generate buzz word and insert text
-                    var generatedBuzzWord = generateBuzzWord();
-                    $("#ideaBuzzWord").text(generatedBuzzWord.name);
-
-                    // Generate noun and insert text
-                    var generatedNoun = generateNoun();
-                    $("#ideaNoun").text(generatedNoun);
-
-                    // Generate tech words then insert both into text
-                    var generatedTechs = generateTechs();
-                    $("#ideaTech1").text(generatedTechs.tech1.name);
-                    $("#ideaTech2").text(generatedTechs.tech2.name);
+                    clearInterval(loopingVariable);
+                    clickGenerateButton();
                 });
             });
         });
