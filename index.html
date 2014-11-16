@@ -42,7 +42,6 @@
                 <h2>A hackathon idea generator</h2>
                 <br/>
                 <br/>
-                <br/>
                 <div class="centered-text">
                     <span id="chevronDown" class="glyphicon glyphicon-chevron-down down button" aria-hidden="true"></span>
                 </div>
@@ -53,7 +52,7 @@
     <!--This container needs to be hidden until the page loads or it will glitch out-->
     <div id="generatorContainer" class="container text-center generated-text" style="display:none;">
 
-        <p>You will create
+        <p id="idea">You will create
             <br/>
             <span id="ideaName" class="keyword">______</span>,
             <br/>
@@ -62,11 +61,13 @@
             using
             <br/>
             <span id="ideaTech1" class="keyword">______</span> and <span id="ideaTech2" class="keyword">______</span>.</p>
-        <br />
-        <span id="generateButton"><i class="fa fa-rocket button"></i><i class="fa fa-refresh button"></i></span>
+        <div id="generateButton"><i class="fa fa-rocket button"></i><i class="fa fa-refresh button"></i></div>
 
-        <div id="shareIdea" class="container text-center share">
-            <p>Share your hackathon idea <i class="fa fa-twitter button"></i> <i class="fa fa-facebook button"></i></p>
+        <div id="shareIdea" class="text-center share">
+            <p>Share your hackathon idea</p>
+            <a id="twitter-share-button" href="https://twitter.com/intent/tweet?original_referer=&text=Generate%20a%20%23hackathon%20idea%20at%20http%3A%2F%2Fchimp.impatientbanana.com%2F%20by%20%40impatientbanana&tw_p=tweetbutton&url=file%3A%2F%2F%2FC%3A%2FUsers%2FJoe%2520Duncko%2FDocuments%2FGitHub%2Fchimp%2Findex.html">
+                <i class="fa fa-twitter"></i>
+            </a>
         </div>
 
     </div>
