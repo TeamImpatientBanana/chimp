@@ -79,3 +79,7 @@ footer {
 	overflow-y:hidden;
 	overflow-x:hidden;
 }
+
+a {
+	text-decoration: underline;
+}

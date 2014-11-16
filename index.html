@@ -136,6 +136,7 @@
 
                 // Interval for looping through the arrays until a click even happens
                 $('#generatorContainer').waypoint(function (direction) {
+                    // If its the first time scrolling down, start the loop
                     if (first) {
                         first = !first;
                         running = true;
@@ -146,11 +147,14 @@
                 });
 
                 $("#generateButton").click(function () {
+                    // If the loop is already running when the button is pressed, then clear the interval and generate the values
                     if(running) {
                         clearInterval(loopingVariable);
                         clickGenerateButton();
                         running = !running;
-                    } else {
+                    }
+                    // If the loop is not running, replace the the button with the rocket, reset the twitter post, set the interval, and loop again
+                    else {
                         running = true;
                         // Replace the replay button with a go button
                         $('.fa-refresh').hide();
