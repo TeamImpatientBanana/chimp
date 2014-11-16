@@ -103,25 +103,25 @@ var techs = [
 ];
 
 var nouns = [
-    "application",
-    "game",
-    "operating system",
-    "user interface",
-    "calculator",
-    "GPS",
-    "typography software",
-    "menu",
-    "database system",
-    "android app",
-    "iPhone app",
-    "Windows Phone app",
-    "e-reader",
-    "webapp",
-    "Leap Motion app",
-    "spreadsheet",
-    "mailing list",
-    "image organizer",
-    "todo list"
+    ['application', 'http://en.wikipedia.org/wiki/Application_software'] 
+    ['game', 'http://en.wikipedia.org/wiki/Game']
+    ['operating system', 'http://en.wikipedia.org/wiki/Operating_system']
+    ['user interface', 'http://en.wikipedia.org/wiki/User_interface']
+    ['calculator', 'http://en.wikipedia.org/wiki/Calculator']
+    ['GPS', 'http://en.wikipedia.org/wiki/Global_Positioning_System']
+    ['typography software', 'http://en.wikipedia.org/wiki/Typography']
+    ['menu', 'http://en.wikipedia.org/wiki/Menu_(computing)']
+    ['database system', 'http://en.wikipedia.org/wiki/Database']
+    ['android app', 'http://en.wikipedia.org/wiki/Android_(operating_system)']
+    ['iPhone app', 'http://en.wikipedia.org/wiki/App_Store_(iOS)']
+    ['Windows Phone app', 'http://www.windowsphone.com/en-us/store/app/wikipedia/fd40c569-2681-48df-9ff3-53ffd80aa9b5']
+    ['e-reader', 'http://en.wikipedia.org/wiki/E-reader']
+    ['webapp', 'http://en.wikipedia.org/wiki/Web_application']
+    ['Leap Motion app', 'http://en.wikipedia.org/wiki/Leap_Motion']
+    ['spreadsheet', 'http://en.wikipedia.org/wiki/Spreadsheet']
+    ['mailing list', 'http://en.wikipedia.org/wiki/Electronic_mailing_list']
+    ['image organizer', 'http://en.wikipedia.org/wiki/Image_organizer']
+    ['todo list', 'http://en.wikipedia.org/wiki/Wikipedia:To-do_list']
 
 ];
 
