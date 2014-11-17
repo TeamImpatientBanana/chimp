@@ -127,7 +127,7 @@ var nouns = [
 ];
 
 
-function randomize (arrayToRandomize) {
+function randomize(arrayToRandomize) {
     return Math.floor(Math.random() * arrayToRandomize.length);
 }
 
@@ -263,10 +263,4 @@ function loopThroughArrays() {
     if (counterNames == dictionary.words.length) {
         counterNames = 0;
     }
-    // VERY IMPORTANT: var generateButtonIsClicked needs to be defined outside of the scope of this function as a boolean. Define it in index.html
-    /*
-    if (generateButtonIsClicked == true) {
-        break;
-    }
-    */
 }

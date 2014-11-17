@@ -121,6 +121,7 @@
                 // Fade in the chimp and the heading on the main window
                 $("#chimpSvg").fadeIn(700);
                 $("#chimpHeading").fadeIn(700);
+                $("#chevronDown").fadeIn(700);
 
 
                 // Listener for resizing the window
@@ -136,10 +137,11 @@
 
                 // Interval for looping through the arrays until a click even happens
                 $('#generatorContainer').waypoint(function (direction) {
-                    // If its the first time scrolling down, start the loop
+                    // If its the first time scrolling down, start the loop and play the music
                     if (first) {
                         first = !first;
                         running = true;
+                        playMusic();
                         loopingVariable = setInterval(function () {
                             loopThroughArrays();
                         }, 200);
