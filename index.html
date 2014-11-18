@@ -100,7 +100,7 @@
         var counterTechs1 = 0;
         // offset l so k & l aren't the same while looping
         var counterTechs2 = 1;
-        var counterNames = Math.floor(Math.random() * dictionary.words.length);
+        var counterNames = Math.floor(Math.random() * dictionary.length);
         console.log(counterNames);
 
         // variables to check if its the first time running the generator and if it is currently running
@@ -146,6 +146,7 @@
                     }
                 });
 
+                // Function for the generate button click event.
                 $("#generateButton").click(function () {
                     // If the loop is already running when the button is pressed, then clear the interval and generate the values
                     if(running) {
@@ -159,7 +160,8 @@
                         // Replace the replay button with a go button
                         $('.fa-refresh').hide();
                         $('.fa-rocket').show();
-                        $('#twitter-share-button').attr('href', 'https://twitter.com/intent/tweet?original_referer=&text=Generate%20a%20%23hackathon%20idea%20at%20http%3A%2F%2Fchimp.impatientbanana.com%2F%20by%20%40impatientbanana&tw_p=tweetbutton&url=file%3A%2F%2F%2FC%3A%2FUsers%2FJoe%2520Duncko%2FDocuments%2FGitHub%2Fchimp%2Findex.html');
+                        // The default Twitter post without a generated idea
+                        $('#twitter-share-button').attr('href', 'https://twitter.com/intent/tweet?original_referer=&text=Generate%20a%20%23hackathon%20idea%20at%20http%3A%2F%2Fchimp.impatientbanana.com%2F%20by%20%40impatientbanana');
                         loopingVariable = setInterval(function () {
                             loopThroughArrays();
                         }, 200);

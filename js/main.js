@@ -1,5 +1,14 @@
-// MAKE SURE THIS FILE IS INCLUDED AFTER JQUERY
+/** MAKE SURE THIS FILE IS INCLUDED AFTER JQUERY.
+ * This file contains some jQuery in its functions and runs stable on JQuery 1.11.1
+ * To contributors:
+ *     The following arrays contain the names AND links to the buzzwords, nouns, and technologies used.
+ *     Feel free to refine the existing list and/or add new items to the lists. Make sure to keep the same
+ *     format throughout the arrays. Also, make sure that the word you are adding actually makes sense grammatically
+ *     if it were to be used in the idea sentence (
+ */
 
+// The array that contains the list of buzzwords and their respective links
+// Make sure to add "a" or "an" before the word
 var buzzwords = [
     ['a bleeding edge', 'http://www.techopedia.com/definition/23222/bleeding-edge'],
     ['a big data', 'http://www.techopedia.com/definition/27745/big-data'],
@@ -49,6 +58,30 @@ var buzzwords = [
     ['a cut-and-dried','http://dictionary.reference.com/browse/cut%20and%20dried']
 ];
 
+// The array that contains the list of nouns and their respective links
+var nouns = [
+    ['application', 'http://en.wikipedia.org/wiki/Application_software'] ,
+    ['game', 'http://en.wikipedia.org/wiki/Game'],
+    ['operating system', 'http://en.wikipedia.org/wiki/Operating_system'],
+    ['user interface', 'http://en.wikipedia.org/wiki/User_interface'],
+    ['calculator', 'http://en.wikipedia.org/wiki/Calculator'],
+    ['GPS', 'http://en.wikipedia.org/wiki/Global_Positioning_System'],
+    ['typography software', 'http://en.wikipedia.org/wiki/Typography'],
+    ['menu', 'http://en.wikipedia.org/wiki/Menu_(computing)'],
+    ['database system', 'http://en.wikipedia.org/wiki/Database'],
+    ['android app', 'http://en.wikipedia.org/wiki/Android_(operating_system)'],
+    ['iPhone app', 'http://en.wikipedia.org/wiki/App_Store_(iOS)'],
+    ['Windows Phone app', 'http://www.windowsphone.com/en-us/store/app/wikipedia/fd40c569-2681-48df-9ff3-53ffd80aa9b5'],
+    ['e-reader', 'http://en.wikipedia.org/wiki/E-reader'],
+    ['webapp', 'http://en.wikipedia.org/wiki/Web_application'],
+    ['Leap Motion app', 'http://en.wikipedia.org/wiki/Leap_Motion'],
+    ['spreadsheet', 'http://en.wikipedia.org/wiki/Spreadsheet'],
+    ['mailing list', 'http://en.wikipedia.org/wiki/Electronic_mailing_list'],
+    ['image organizer', 'http://en.wikipedia.org/wiki/Image_organizer'],
+    ['todo list', 'http://en.wikipedia.org/wiki/Wikipedia:To-do_list']
+];
+
+// The array that contains the list of technologies and their respective links
 var techs = [
     ['HTML', 'https://www.bento.io/html'],
     ['CSS', 'https://www.bento.io/css'],
@@ -104,29 +137,7 @@ var techs = [
     ['Shirts.io', 'https://www.bento.io/shirts.io']
 ];
 
-var nouns = [
-    ['application', 'http://en.wikipedia.org/wiki/Application_software'] ,
-    ['game', 'http://en.wikipedia.org/wiki/Game'],
-    ['operating system', 'http://en.wikipedia.org/wiki/Operating_system'],
-    ['user interface', 'http://en.wikipedia.org/wiki/User_interface'],
-    ['calculator', 'http://en.wikipedia.org/wiki/Calculator'],
-    ['GPS', 'http://en.wikipedia.org/wiki/Global_Positioning_System'],
-    ['typography software', 'http://en.wikipedia.org/wiki/Typography'],
-    ['menu', 'http://en.wikipedia.org/wiki/Menu_(computing)'],
-    ['database system', 'http://en.wikipedia.org/wiki/Database'],
-    ['android app', 'http://en.wikipedia.org/wiki/Android_(operating_system)'],
-    ['iPhone app', 'http://en.wikipedia.org/wiki/App_Store_(iOS)'],
-    ['Windows Phone app', 'http://www.windowsphone.com/en-us/store/app/wikipedia/fd40c569-2681-48df-9ff3-53ffd80aa9b5'],
-    ['e-reader', 'http://en.wikipedia.org/wiki/E-reader'],
-    ['webapp', 'http://en.wikipedia.org/wiki/Web_application'],
-    ['Leap Motion app', 'http://en.wikipedia.org/wiki/Leap_Motion'],
-    ['spreadsheet', 'http://en.wikipedia.org/wiki/Spreadsheet'],
-    ['mailing list', 'http://en.wikipedia.org/wiki/Electronic_mailing_list'],
-    ['image organizer', 'http://en.wikipedia.org/wiki/Image_organizer'],
-    ['todo list', 'http://en.wikipedia.org/wiki/Wikipedia:To-do_list']
-];
-
-
+// The function that returns a random index of an array.
 function randomize (arrayToRandomize) {
     return Math.floor(Math.random() * arrayToRandomize.length);
 }
@@ -135,6 +146,7 @@ function randomize (arrayToRandomize) {
 // Access the name by generatedBuzzword.name and the link by generatedBuzzword.link
 function generateBuzzWord() {
     var rand = randomize(buzzwords);
+    // Return multiple values as JSON to access easily
     return {
         name: buzzwords[rand][0],
         link: buzzwords[rand][1]
@@ -143,15 +155,15 @@ function generateBuzzWord() {
 
 // This function generates a name for the project using the Foswig function. Make sure to include foswig.js before this file in index.html
 function generateName() {
-    var data = dictionary;
     chain = new Foswig(3);
-    chain.addWordsToChain(data.words);
+    chain.addWordsToChain(dictionary);
     return chain.generateWord(5,10,true);
 }
 
 // This function will generate the nouns based on the array above. Much simpler than the others
 function generateNoun() {
     var rand = randomize(nouns);
+    // Return multiple values as JSON to access easily
     return {
         name: nouns[rand][0],
         link: nouns[rand][1]
@@ -168,6 +180,7 @@ function generateTechs() {
     while (rand1 == rand2) {
         rand2 = randomize(techs);
     }
+    // Return multiple values as JSON to access easily
     return {
         tech1 : {
             name: techs[rand1][0],
@@ -229,11 +242,13 @@ function resizeListener() {
     $("#generatorContainer").height(w);
 }
 
+
+
 // The values for counterBuzzwords, counterNouns, counterTechs1, counterTechs2, counterNames NEED to be defined in index.html because of the nature of the setInterval function using this function
 function loopThroughArrays() {
-    // Loop through everything, literally
 
-    $("#ideaName").text(dictionary.words[counterNames]);
+    // Show
+    $("#ideaName").text(dictionary[counterNames]);
     $("#ideaBuzzWord").text(buzzwords[counterBuzzwords][0]);
     $("#ideaNoun").text(nouns[counterNouns][0]);
     $("#ideaTech1").text(techs[counterTechs1][0]);
@@ -244,29 +259,27 @@ function loopThroughArrays() {
     if (counterBuzzwords == nouns.length) {
         counterBuzzwords = 0;
     }
+
     // Loop through nouns
     counterNouns = ++counterNouns;
     if (counterNouns == nouns.length) {
         counterNouns = 0;
     }
+
     // Loop through techs (k is tech 1, l is tech 2)
     counterTechs1 = ++counterTechs1;
     if (counterTechs1 == techs.length) {
         counterTechs1 = 0;
     }
+
     counterTechs2 = ++counterTechs2;
     if (counterTechs2 == techs.length) {
         counterTechs2 = 0;
     }
+
     // Loop through dictionary of names
     counterNames = ++counterNames;
-    if (counterNames == dictionary.words.length) {
+    if (counterNames == dictionary.length) {
         counterNames = 0;
     }
-    // VERY IMPORTANT: var generateButtonIsClicked needs to be defined outside of the scope of this function as a boolean. Define it in index.html
-    /*
-    if (generateButtonIsClicked == true) {
-        break;
-    }
-    */
 }
