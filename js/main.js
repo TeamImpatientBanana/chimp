@@ -245,7 +245,7 @@ function loopThroughArrays() {
 
     // Loop through buzzwords
     counterBuzzwords = counterBuzzwords++;
-    if (counterBuzzwords == nouns.length) {
+    if (counterBuzzwords == buzzwords.length) {
         counterBuzzwords = 0;
     }
 
