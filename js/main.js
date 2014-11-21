@@ -31,7 +31,6 @@ var buzzwords = [
 var nouns = [
 
     //Fix these links - should lead to something better than Wikipedia
-
     //Platforms
     ['Android app', 'http://developer.android.com/index.html'],
     ['Chrome app', 'https://developer.chrome.com/apps/first_app'],
@@ -47,7 +46,6 @@ var nouns = [
     ['Pebble app', 'https://developer.getpebble.com/'],
     ['web app', 'https://developer.apple.com/programs/ios/'],
     ['Windows Phone app', 'https://dev.windows.com/en-us'],
-
     //Types
     ['application', 'http://en.wikipedia.org/wiki/Application_software'],
     ['game', 'http://en.wikipedia.org/wiki/Game'],
@@ -245,7 +243,6 @@ function loopThroughArrays() {
 
     // Loop through buzzwords
     counterBuzzwords = ++counterBuzzwords;
-    console.log(counterBuzzwords);
     if (counterBuzzwords == buzzwords.length) {
         counterBuzzwords = 0;
     }
