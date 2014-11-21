@@ -225,10 +225,11 @@ function animateScrolling() {
 // This function will change each divs heights according to the viewport size when the window is resized
 function resizeListener() {
     // This will execute whenever the window is resized
-    var w = $(window).height();
-    $("#jumbotron").height(w);
-    $("#generatorContainer").height(w);
+    var wind = $(window).height();
+    $("#jumbotron").height(wind);
+    $("#generatorContainer").height(wind);
 }
+
 
 
 
@@ -243,7 +244,7 @@ function loopThroughArrays() {
     $("#ideaTech2").text(techs[counterTechs2][0]);
 
     // Loop through buzzwords
-    counterBuzzwords = ++counterBuzzwords;
+    counterBuzzwords = counterBuzzwords++;
     if (counterBuzzwords == nouns.length) {
         counterBuzzwords = 0;
     }
