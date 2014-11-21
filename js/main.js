@@ -244,7 +244,8 @@ function loopThroughArrays() {
     $("#ideaTech2").text(techs[counterTechs2][0]);
 
     // Loop through buzzwords
-    counterBuzzwords = counterBuzzwords++;
+    counterBuzzwords = ++counterBuzzwords;
+    console.log(counterBuzzwords);
     if (counterBuzzwords == buzzwords.length) {
         counterBuzzwords = 0;
     }
