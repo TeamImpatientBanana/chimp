@@ -4,7 +4,7 @@
  *     The following arrays contain the names AND links to the buzzwords, nouns, and technologies used.
  *     Feel free to refine the existing list and/or add new items to the lists. Make sure to keep the same
  *     format throughout the arrays. Also, make sure that the word you are adding actually makes sense grammatically
- *     if it were to be used in the idea sentence (
+ *     if it were to be used in the idea sentence
  */
 
 // The array that contains the list of buzzwords and their respective links
@@ -24,7 +24,7 @@ var buzzwords = [
     ['a social','http://www.techopedia.com/definition/23759/social-platform'],
     ['a software as a service','http://www.techopedia.com/definition/155/software-as-a-service-saas'],
     ['a wearable','http://www.techopedia.com/definition/16339/wearable-computer'],
-    ['an immersive', 'http://dictionary.reference.com/browse/immersive'],
+    ['an immersive', 'http://dictionary.reference.com/browse/immersive']
 ];
 
 // The array that contains the list of nouns and their respective links
@@ -49,9 +49,9 @@ var nouns = [
     ['Windows Phone app', 'https://dev.windows.com/en-us'],
 
     //Types
-    ['application', 'http://en.wikipedia.org/wiki/Application_software'] ,
+    ['application', 'http://en.wikipedia.org/wiki/Application_software'],
     ['game', 'http://en.wikipedia.org/wiki/Game'],
-    ['operating system', 'http://en.wikipedia.org/wiki/Operating_system'],
+    ['operating system', 'http://en.wikipedia.org/wiki/Operating_system']
 ];
 
 // The array that contains the list of technologies and their respective links
@@ -70,12 +70,10 @@ var techs = [
     ['Stripe API', 'https://www.bento.io/stripe'],
     ['Twilio API', 'https://www.bento.io/twilio'],
     ['Twitter API', 'https://dev.twitter.com/overview/documentation'],
-
     //tools
     ['Twitter Fabric', 'https://dev.twitter.com/products/fabric'],
-
     //languages
-    ['.NET', 'https://www.bento.io/.net']
+    ['.NET', 'https://www.bento.io/.net'],
     ['C#', 'https://www.bento.io/c-sharp'],
     ['Clojure', 'https://www.bento.io/clojure'],
     ['Dart', 'https://www.bento.io/dart'],
@@ -92,11 +90,9 @@ var techs = [
     ['Ruby', 'https://www.bento.io/ruby'],
     ['Scala', 'https://www.bento.io/scala'],
     ['Swift', 'https://www.bento.io/swift'],
-
     //stack pieces
     ['CouchDB', 'https://www.bento.io/couchdb'],
     ['MongoDB', 'https://www.bento.io/mongo'],
-
     //Frameworks, etc
     ['AngularJS', 'https://www.bento.io/angular'],
     ['Backbone.js', 'https://www.bento.io/backbone'],
@@ -125,7 +121,7 @@ var techs = [
     ['Twig', 'https://www.bento.io/twig'],
     ['uilang', 'https://www.bento.io/uilang'],
     ['Underscore.js', 'https://www.bento.io/underscore'],
-    ['Yii', 'https://www.bento.io/yii'],
+    ['Yii', 'https://www.bento.io/yii']
 
 ];
 
