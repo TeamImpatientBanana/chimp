@@ -18,9 +18,3 @@ Visit http://chimp.impatientbanana.com/ .
 Chimp is a completely client-side HTML5, JavaScript, and CSS3 app. That means that installing and using is as simple as uploading the master branch to your server and accessing index.html of the directory you threw it in.
 
 You can also just download the master branch onto your computer and open the index.html in your browser of choice.
-
-##TODO
-
-Fix font size for mobile use
-
-Increase the quality of the terms
