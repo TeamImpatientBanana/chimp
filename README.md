@@ -13,6 +13,10 @@ The music is Fabio Confalone - Tempesta. It was downloaded from Jamendo and is u
 
 Visit http://chimp.impatientbanana.com/ .
 
+##Status
+
+Done! No more development is being done and no more features are being added. Feel free to make feature and bug requests, but don't expect them to get done. Feel free to make pull requests.
+
 ##To install on your own server
 
 Chimp is a completely client-side HTML5, JavaScript, and CSS3 app. That means that installing and using is as simple as uploading the master branch to your server and accessing index.html of the directory you threw it in.
