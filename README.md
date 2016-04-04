@@ -9,10 +9,6 @@ Chimp also uses JQuery, JQuery waypoints (https://github.com/imakewebthings/jque
 
 The music is Fabio Confalone - Tempesta. It was downloaded from Jamendo and is used under the CC BY-NC-SA 3.0 license.
 
-##To use
-
-Visit http://chimp.impatientbanana.com/ .
-
 ##Status
 
 Done! No more development is being done and no more features are being added. Feel free to make feature and bug requests, but don't expect them to get done. Feel free to make pull requests.
